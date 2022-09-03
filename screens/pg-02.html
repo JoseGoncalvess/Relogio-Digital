@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../style/screens.css" />
+    <title>Relógio Digital</title>
+  </head>
+  <body>
+    <main>
+      <div id="relogio">
+        <div id="campos">
+          <span id="horas">00</span>
+          <span id="tempo">Horas</span>
+        </div>
+        <div id="campos">
+          <span id="minutos">00</span>
+          <span id="tempo">Minutos</span>
+        </div>
+        <div id="campos">
+          <span id="segundos">00</span>
+          <span id="tempo">Segundos</span>
+        </div>
+      </div>
+      <div id="campos-buttom">
+        <button id="start" onclick="start()">Start</button>
+        <button id="paused" onclick="paused()">Paused</button>
+        <button id="stop" onclick="stop()">Stop</button>
+      </div>
+    </main>
+
+    <script>
+      let hora = document.getElementById('horas')
+      let minuto = document.getElementById('minutos')
+      let segundos = document.getElementById('segundos')
+
+      var sec = 00
+      var min = '00'
+      var hr = 00
+      var pausa
+      var stoped
+
+      function start() {
+        //setinterval é uma funcion que chama a outro baseada no tempo que se coloca no 2 parametro
+        time()
+        pausa = setInterval(time, 1)
+      }
+      function paused() {
+        clearInterval(pausa)
+      }
+      function stop() {
+        clearInterval(pausa)
+        segundos.innerText = '00'
+        minuto.innerText = '00'
+        hora.innerText = '00'
+      }
+
+      function time() {
+        sec++
+
+        if (sec == 60) {
+          min++
+          if (min < 10) {
+            min = '0' + min
+          }
+          sec = 00
+        } else if (min == 60) {
+          hr++
+          if (hr < 10) {
+            hr = '0' + hr
+          }
+          min = 00
+        }
+        segundos.innerText = sec
+        minuto.innerText = min
+        hora.innerText = hr
+      }
+    </script>
+  </body>
+</html>
