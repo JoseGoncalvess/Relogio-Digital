@@ -66,15 +66,32 @@ span#tempo{
   font-size: 12px;
 }
 
-div#cronometro{
-  background-color: #ffffff70;
-  width: 310px;
-  display: flex;
+
+div#funcion{
+  display: inline;
   align-items: center;
+text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.435);
+  padding: 20px;
+  color: white;
+}
+span#nday{
+  background-color: rgba(0, 0, 0, 0.348);
+  padding: 10px;
+  border-radius: 10px;
+
+}
+
+div#cronometro{
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   border-radius: 10px;
   
 }
-h1{
+h1,h2{
   font-size: 1.8em;
   font-weight: bold;
   color: white;
@@ -83,6 +100,8 @@ padding: 10px;
 }
 
 img{
-  height: 80px;
-  width: 80px;
-}
+  height: 50px;
+  width: 50px;
+  background: linear-gradient(120deg,var(--azul-claro) ,var(--azul-escuro));
+padding: 10px;
+border-radius: 10px;}
